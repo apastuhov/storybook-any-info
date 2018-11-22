@@ -1,0 +1,31 @@
+{
+  "name": "storybook-any-info",
+  "version": "1.0.0",
+  "description": "Addon to render your Stories as full-featured markdown documentation with a storybook",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apastuhov/storybook-any-info.git"
+  },
+  "keywords": [
+    "storybook"
+  ],
+  "author": {
+    "name": "Aleksey Pastuhov",
+    "email": "aleksey.pastuhov@gmail.com",
+    "url": "https://apastuhov.com/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/apastuhov/storybook-any-info/issues"
+  },
+  "homepage": "https://github.com/apastuhov/storybook-any-info#readme",
+  "dependencies": {
+    "highlight.js": "^9.13.1",
+    "marked": "^0.5.2",
+    "@storybook/addons": "^4.0.0"
+  }
+}
