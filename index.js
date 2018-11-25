@@ -28,7 +28,7 @@ const intro = `
 ### Example
 
 <div class="with-any-info-example">
-<!-- TEMPLATE -->
+<!-- EXAMPLE_TEMPLATE -->
 </div>
 
 ### Source code
@@ -48,21 +48,28 @@ function addAnyInfo(storyFn, context, infoOptions) {
   let component = storyFn(context);
   const storyTemplate = component.template;
 
-  const markdownTemplate = intro
+  let result = intro
     .replace("<!-- KIND -->", context.kind)
     .replace("<!-- STORY -->", context.story)
     .replace("<!-- SOURCE -->", storyTemplate)
     .replace("<!-- MD -->", infoOptions.markdown);
 
-  component.template = renderMarkdown(markdownTemplate, {
-    headerPrefix: "mrkd-",
-    highlight: function(code, lang, callback) {
-      const result = hljs.highlight(lang || "html", code, true);
-      return result.value;
-    }
-  })
-    .replace("<!-- TEMPLATE -->", storyTemplate)
+  try {
+    result = renderMarkdown(result, {
+      headerPrefix: "mrkd-",
+      highlight: function (code, lang, callback) {
+        return hljs.highlight(lang || "html", code, true).value;
+      }
+    })
+  } catch (error) {
+    console.error("Cannot render markdown", error);
+  }
+
+  result = result
+    .replace("<!-- EXAMPLE_TEMPLATE -->", storyTemplate)
     .replace("<!-- STYLES -->", `<style>${infoOptions.customStyles}</style>`);
+
+  component.template = result;
 
   return component;
 }

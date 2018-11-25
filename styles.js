@@ -5,9 +5,9 @@ ${styles}
 
 #mrkd-root { padding: 0 20px; }
 
-h1[id|="mrkd"] { font-size: 1.5em; }
-h2[id|="mrkd"] { font-size: 1.25em; }
-h3[id|="mrkd"] { font-size: 1em; }
+h1[id|="mrkd"] { font-size: 1.75em; }
+h2[id|="mrkd"] { font-size: 1.5em; }
+h3[id|="mrkd"] { font-size: 1.25em; }
 [id|="mrkd"] {
     font-family: sans-serif;
 }
