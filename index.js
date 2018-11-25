@@ -1,11 +1,12 @@
 import { makeDecorator } from "@storybook/addons";
 import marked from "marked";
 import hljs from "highlight.js";
-import "highlight.js/styles/github.css";
+import { storyStyles } from "./styles.js";
+export * from "./styles.js";
 
 const defaults = {
   markdown: "",
-  customStyles: ""
+  customStyles: storyStyles
 };
 
 export const withAnyInfo = makeDecorator({
@@ -20,9 +21,9 @@ export const withAnyInfo = makeDecorator({
 });
 
 const intro = `
-# <!-- KIND -->
+<div id="mrkd-root">
 
-## <!-- STORY -->
+# <!-- KIND --> <small><!-- STORY --></small>
 
 ### Example
 
@@ -36,17 +37,22 @@ const intro = `
 <!-- SOURCE -->
 \`\`\`
 
+<!-- MD -->
+
+<!-- STYLES -->
+
+</div>
 `;
 
 function addAnyInfo(storyFn, context, infoOptions) {
   let component = storyFn(context);
+  const storyTemplate = component.template;
 
-  const markdownTemplate =
-    intro
-      .replace("<!-- KIND -->", context.kind)
-      .replace("<!-- STORY -->", context.story)
-      .replace("<!-- SOURCE -->", component.template) +
-    infoOptions.markdown;
+  const markdownTemplate = intro
+    .replace("<!-- KIND -->", context.kind)
+    .replace("<!-- STORY -->", context.story)
+    .replace("<!-- SOURCE -->", storyTemplate)
+    .replace("<!-- MD -->", infoOptions.markdown);
 
   component.template = renderMarkdown(markdownTemplate, {
     headerPrefix: "mrkd-",
@@ -54,9 +60,10 @@ function addAnyInfo(storyFn, context, infoOptions) {
       const result = hljs.highlight(lang || "html", code, true);
       return result.value;
     }
-  }).replace("<!-- TEMPLATE -->", component.template);
+  })
+    .replace("<!-- TEMPLATE -->", storyTemplate)
+    .replace("<!-- STYLES -->", `<style>${infoOptions.customStyles}</style>`);
 
-  component.template += `<style>${infoOptions.customStyles}</style>`;
   return component;
 }
 

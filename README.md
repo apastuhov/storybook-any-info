@@ -6,7 +6,7 @@ This is an addon to render your Stories as full-featured markdown documentation 
 
 Addon was tested with version **4.0.0** of a storybook.
 
-![screenshot.png](https://github.com/apastuhov/storybook-any-info/blob/master/screenshot.png)
+![screenshot.png](https://raw.githubusercontent.com/apastuhov/storybook-any-info/master/screenshot.png)
 
 ## TOC
 
@@ -87,39 +87,7 @@ storiesOf("Button", module)
 
 ### CSS styling
 
-Only `highlight.js` CSS is integrated inside of that package to support code styling.
-So you can setup any custom CSS in your stories. I recommend to define reusable custom styles in a `.storybook` folder and then import them. Here is an example from a screenshot:
-
-```ts
-export const customStyles = `
-h1[id|="mrkd"] { font-size: 1.5em; }
-h2[id|="mrkd"] { font-size: 1.25em; }
-h3[id|="mrkd"] { font-size: 1em; }
-[id|="mrkd"] {
-    font-family: sans-serif;
-}
-
-div.with-any-info-example {
-    border: 2px dashed #ddd;
-}
-
-pre {
-    padding: 10px;
-    background: #eee;
-    border-radius: 10px;
-}
-
-div.pretable + table th,
-div.pretable + table td,
-div.pretable + table {
-    border-collapse: collapse;
-    font-family: sans-serif;
-    border: 1px solid #eee;
-    text-align: left;
-    padding: 15px;
-}
-`;
-```
+You can setup your own styling, or use predefined one from exported variable `storyStyles`.
 
 ### Support Markdown docs for Angular
 
