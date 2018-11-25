@@ -2,7 +2,7 @@
   "name": "storybook-any-info",
   "version": "1.1.1",
   "description": "Addon to render your Stories as full-featured markdown documentation with a storybook",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
