@@ -65,6 +65,11 @@ function addAnyInfo(storyFn, context, infoOptions) {
     console.error("Cannot render markdown", error);
   }
 
+  // Replace with numeric code
+  result = result
+    .replace(/\{/gm, "&#123;")
+    .replace(/\}/gm, "&#125;");
+
   result = result
     .replace("<!-- EXAMPLE_TEMPLATE -->", storyTemplate)
     .replace("<!-- STYLES -->", `<style>${infoOptions.customStyles}</style>`);
