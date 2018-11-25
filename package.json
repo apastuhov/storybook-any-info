@@ -1,6 +1,6 @@
 {
   "name": "storybook-any-info",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Addon to render your Stories as full-featured markdown documentation with a storybook",
   "main": "index.js",
   "scripts": {
