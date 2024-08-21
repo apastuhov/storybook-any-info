@@ -1,6 +1,6 @@
-# storybook-any-info
+> This repository was deprecated as new versions of storybook have this feature out of the box
 
-[![NPM version](https://img.shields.io/npm/v/storybook-any-info.svg?style=flat)](https://www.npmjs.com/package/storybook-any-info) [![NPM downloads](https://img.shields.io/npm/dm/storybook-any-info.svg?style=flat)](https://npmjs.org/package/storybook-any-info)
+# storybook-any-info
 
 This is an addon to render your Stories as full-featured markdown documentation with a [storybook][1]. Allows to render source template near the live example.
 
